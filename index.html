@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Z80 Compiler / Emulator</title>
+        <link rel="stylesheet" href="styles.css"></link>
+    </head>
+    <body>
+        <div id="columns">
+            <div id="editorDiv">
+                <div id="editorContainer">
+                    <textarea id="editor" placeholder=";write Z80 assembly here"></textarea>
+                </div>
+                <div id="compileBar">
+                    <button id="compileBtn" class="customBtn">Compile and Load to Memory</button>
+                </div>
+            </div>
+
+            <div id="memoryDivContainer" class="border">
+                <div id="memoryHeader">
+                    <h3 style="margin: 0.25rem">Memory</h3>
+                    <div style="padding: 0.25rem">
+                        <input id="memPosToGoTo" placeholder="Address"></input>
+                        <select id="memPosToGoToNumberSystem">
+                            <option>dec</option>
+                            <option>hex</option>
+                        </select>
+                        <button id="goToMemPos" class="customBtn">Go To</button>
+                    </div>
+                </div>
+                <div id="memoryListDiv">
+                </div>
+            </div>
+
+            <div id="regsDivContainer" class="border">
+                <h3 class="infoText">Registers</h3>
+                <div id="regsDiv">
+                </div>
+            </div>
+
+            <div id="runProgramDiv" class="border">
+                <button id="fetchAtPcAndRunIns" class="customBtn" style="height: 100%">Fetch and run instruction</button>
+                <div style="margin: 0.1rem">
+                    <button id="fetchAtPcAndRunMultipleInsBtn" class="customBtn">Fetch and run</button>
+                    <input id="fetchAtPcAndRunMultipleIns" type="number"></input>
+                    <p style="margin: 0 0.1rem">instructions</p>
+                </div>
+            </div>
+
+            <div id="specialRegsDivContainer" class="border">
+                <h3 class="infoText">Special Registers</h3>
+                <div id="specialRegsDiv">
+                </div>
+            </div>
+        </div>
+
+        <script src="/utils/loadData.js"></script>
+        <script src="/utils/utils.js"></script>
+
+        <script src="compiler.js"></script>
+        <script src="Z80.js"></script>
+
+        <script src="/ops/loadOps.js"></script>
+        <script src="/ops/arithmeticOps.js"></script>
+        <script src="/ops/jpOps.js"></script>
+        <script src="/ops/subroutineOps.js"></script>
+        <script src="/ops/bitwiseOps.js"></script>
+
+        <script src="/ui/memUI.js"></script>
+        <script src="/ui/runUI.js"></script>
+    </body>
+</html>
