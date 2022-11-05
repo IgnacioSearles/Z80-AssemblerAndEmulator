@@ -123,5 +123,5 @@ function createRegList(regs, parentDiv) {
 }
 
 createRegList(['A', 'B', 'C', 'D', 'E', 'H', 'L', 'IX', 'IY'], regsDiv); 
-createRegList(['PC', 'SP', 'flags', 'I', 'R'], specialRegsDiv); 
+createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
 createMemoryListDiv();

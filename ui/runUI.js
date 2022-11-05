@@ -6,7 +6,7 @@ compileBtn.addEventListener("click", () => {
     compileAndMoveToMem(asm);
 
     PC[0] = startPosInMemory;
-    createRegList(['PC', 'SP', 'flags', 'I', 'R'], specialRegsDiv); 
+    createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
 
     createMemoryListDiv();
 });
@@ -17,7 +17,7 @@ fetchAtPcAndRunIns.addEventListener("click", () => {
 
     createMemoryListDiv();
     createRegList(['A', 'B', 'C', 'D', 'E', 'H', 'L', 'IX', 'IY'], regsDiv); 
-    createRegList(['PC', 'SP', 'flags', 'I', 'R'], specialRegsDiv); 
+    createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
 });
 
 const fetchAtPcAndRunMultipleInsBtn = document.getElementById("fetchAtPcAndRunMultipleInsBtn");
@@ -35,6 +35,6 @@ fetchAtPcAndRunMultipleInsBtn.addEventListener("click", () => {
 
         createMemoryListDiv();
         createRegList(['A', 'B', 'C', 'D', 'E', 'H', 'L', 'IX', 'IY'], regsDiv); 
-        createRegList(['PC', 'SP', 'flags', 'I', 'R'], specialRegsDiv); 
+        createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
     }, 120);
 })

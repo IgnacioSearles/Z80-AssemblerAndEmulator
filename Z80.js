@@ -18,7 +18,7 @@ const IY = new Uint16Array(1);
 const PC = new Uint16Array(1);
 const SP = new Uint16Array(1);
 
-const flags = new Uint8Array(1);
+const F = new Uint8Array(1);
 
 function compileAndMoveToMem(asm) {
     const [programBytes, startPos] = compileToZ80(asm);
@@ -30,7 +30,7 @@ function compileAndMoveToMem(asm) {
 function setFlagBit(bitValue, bitPosition) {
     const bitValueNormalized = bitValue ? 1 : 0;
     const clearMask = ~(1 << bitPosition);
-    flags[0] = (flags[0] & clearMask) | (bitValueNormalized << bitPosition);
+    F[0] = (F[0] & clearMask) | (bitValueNormalized << bitPosition);
 }
 
 function setFlag(flag, val) {
@@ -46,7 +46,7 @@ function setFlag(flag, val) {
 }
 
 function getFlagBit(bit) {
-    return (flags[0] & (1 << bit)) >> bit;
+    return (F[0] & (1 << bit)) >> bit;
 }
 
 function getFlag(flag) {
