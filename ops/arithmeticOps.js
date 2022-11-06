@@ -442,6 +442,13 @@ function dec_iy() {
     PC[0] += 2;
 }
 
+function neg() {
+    set8bitSubFlags(0, A[0]);
+    A[0] = -A[0];
+
+    PC[0] += 2;
+}
+
 function mlt() {
     const regToMlt = getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4); 
 

@@ -86,6 +86,8 @@
     {"instruction": "(dec|DEC) IX", "compilecode": ["221", "43"], "bytePatterns": [221, 43], "fn": "dec_ix"},
     {"instruction": "(dec|DEC) IY", "compilecode": ["253", "43"], "bytePatterns": [253, 43], "fn": "dec_iy"},
 
+    {"instruction": "(neg|NEG)", "compilecode": ["237", "68"], "bytePatterns": [237, 68], "fn": "neg"},
+
     {"instruction": "(mlt|MLT) (BC|DE|HL|SP)", "compilecode": ["237", "78 + t3 * 16"], "bytePatterns": [237, "01..1100"], "fn": "mlt"},
 
     {"instruction": "(cpl|CPL)", "compilecode": ["47"], "bytePatterns": [47], "fn": "cpl"},
@@ -121,6 +123,24 @@
     {"instruction": "(call|CALL) ([0-9]+h?|[a-z_]+)", "compilecode": ["205", "n", "m"], "bytePatterns": [205], "fn": "call"},
 
     {"instruction": "(ret|RET)", "compilecode": ["201"], "bytePatterns": [201], "fn": "ret"},
+
+    {"instruction": "(and|AND) ([A-EHL])", "compilecode": ["160 + t1"], "bytePatterns": ["10100..."], "fn": "a_and_r"},
+    {"instruction": "(and|AND) \\(HL\\)", "compilecode": ["166"], "bytePatterns": [166], "fn": "a_and_at_hl"},
+    {"instruction": "(and|AND) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "166", "d"], "bytePatterns": [221, 166], "fn": "a_and_at_ix"},
+    {"instruction": "(and|AND) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "166", "d"], "bytePatterns": [253, 166], "fn": "a_and_at_iy"},
+    {"instruction": "(and|AND) ([0-9]+h?|[a-z_]+)", "compilecode": ["230", "v"], "bytePatterns": [230], "fn": "a_and_v"},
+
+    {"instruction": "(or|OR) ([A-EHL])", "compilecode": ["176 + t1"], "bytePatterns": ["10110..."], "fn": "a_or_r"},
+    {"instruction": "(or|OR) \\(HL\\)", "compilecode": ["182"], "bytePatterns": [182], "fn": "a_or_at_hl"},
+    {"instruction": "(or|OR) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "182", "d"], "bytePatterns": [221, 182], "fn": "a_or_at_ix"},
+    {"instruction": "(or|OR) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "182", "d"], "bytePatterns": [253, 182], "fn": "a_or_at_iy"},
+    {"instruction": "(or|OR) ([0-9]+h?|[a-z_]+)", "compilecode": ["246", "v"], "bytePatterns": [246], "fn": "a_or_v"},
+
+    {"instruction": "(xor|XOR) ([A-EHL])", "compilecode": ["168 + t1"], "bytePatterns": ["10101..."], "fn": "a_xor_r"},
+    {"instruction": "(xor|XOR) \\(HL\\)", "compilecode": ["174"], "bytePatterns": [174], "fn": "a_xor_at_hl"},
+    {"instruction": "(xor|XOR) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "174", "d"], "bytePatterns": [221, 174], "fn": "a_xor_at_ix"},
+    {"instruction": "(xor|XOR) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "174", "d"], "bytePatterns": [253, 174], "fn": "a_xor_at_iy"},
+    {"instruction": "(xor|XOR) ([0-9]+h?|[a-z_]+)", "compilecode": ["238", "v"], "bytePatterns": [238], "fn": "a_xor_v"},
 
     {"instruction": "(int|INT) 80h", "compilecode": ["255"], "bytePatterns": ["FF"], "fn": "halt"}
 ]
