@@ -142,5 +142,20 @@
     {"instruction": "(xor|XOR) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "174", "d"], "bytePatterns": [253, 174], "fn": "a_xor_at_iy"},
     {"instruction": "(xor|XOR) ([0-9]+h?|[a-z_]+)", "compilecode": ["238", "v"], "bytePatterns": [238], "fn": "a_xor_v"},
 
+    {"instruction": "(sla|SLA) ([A-EHL])", "compilecode": ["203", "32 + t1"], "bytePatterns": [203, "00100..."], "fn": "sla_r"},
+    {"instruction": "(sla|SLA) \\(HL\\)", "compilecode": ["203", "38"], "bytePatterns": [203, 38], "fn": "sla_at_hl"},
+    {"instruction": "(sla|SLA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "38"], "bytePatterns": [221, 203, "*", 26], "fn": "sla_at_ix"},
+    {"instruction": "(sla|SLA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "38"], "bytePatterns": [253, 203, "*", 26], "fn": "sla_at_iy"},
+
+    {"instruction": "(sra|SRA) ([A-EHL])", "compilecode": ["203", "40 + t1"], "bytePatterns": [203, "00101..."], "fn": "sra_r"},
+    {"instruction": "(sra|SRA) \\(HL\\)", "compilecode": ["203", "46"], "bytePatterns": [203, 46], "fn": "sra_at_hl"},
+    {"instruction": "(sra|SRA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "46"], "bytePatterns": [221, 203, "*", 46], "fn": "sra_at_ix"},
+    {"instruction": "(sra|SRA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "46"], "bytePatterns": [253, 203, "*", 46], "fn": "sra_at_iy"},
+
+    {"instruction": "(srl|SRL) ([A-EHL])", "compilecode": ["203", "56 + t1"], "bytePatterns": [203, "00111..."], "fn": "srl_r"},
+    {"instruction": "(srl|SRL) \\(HL\\)", "compilecode": ["203", "62"], "bytePatterns": [203, 62], "fn": "srl_at_hl"},
+    {"instruction": "(srl|SRL) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "62"], "bytePatterns": [221, 203, "*", 62], "fn": "srl_at_ix"},
+    {"instruction": "(srl|SRL) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "62"], "bytePatterns": [253, 203, "*", 62], "fn": "srl_at_iy"},
+
     {"instruction": "(int|INT) 80h", "compilecode": ["255"], "bytePatterns": ["FF"], "fn": "halt"}
 ]

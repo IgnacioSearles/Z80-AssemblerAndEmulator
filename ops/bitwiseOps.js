@@ -189,3 +189,148 @@ function a_xor_v() {
     A[0] ^= valToXor;
     PC[0] += 2;
 }
+
+
+function setSlaFlags(a) {
+    let temp = a << 1;
+
+    setFlag("H", 0);
+    setFlag("N", 0);
+
+    if (a >= 128) setFlag("C", 1);
+    else setFlag("C", 0);
+
+    if (temp >= 128) setFlag("S", 1);
+    else setFlag("S", 0);
+
+    if (temp == 0) setFlag("Z", 1);
+    else setFlag("Z", 0);
+
+    setFlag("P", 0);
+}
+
+function sla_r() {
+    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+
+    setSlaFlags(eval(`${regToShift}[0]`));
+
+    eval(`${regToShift}[0] = ${regToShift}[0] << 1`);
+    PC[0] += 2;
+}
+
+function sla_at_hl() {
+    setSlaFlags(memory[(H[0] << 8) + L[0]]);
+
+    memory[(H[0] << 8) + L[0]] = memory[(H[0] << 8) + L[0]] << 1;
+    PC[0] += 2;
+}
+
+function sla_at_ix() {
+    setSlaFlags(memory[IX[0] + memory[PC[0] + 2]]);
+
+    memory[IX[0] + memory[PC[0] + 2]] = memory[IX[0] + memory[PC[0] + 2]] << 1;
+    PC[0] += 4;
+}
+
+function sla_at_iy() {
+    setSlaFlags(memory[IY[0] + memory[PC[0] + 2]]);
+
+    memory[IY[0] + memory[PC[0] + 2]] = memory[IY[0] + memory[PC[0] + 2]] << 1;
+    PC[0] += 4;
+}
+
+function setSraFlags(a) {
+    let temp = a & 1 + a >> 1;
+
+    setFlag("H", 0);
+    setFlag("N", 0);
+
+    if ((a & 1) == 128) setFlag("C", 1);
+    else setFlag("C", 0);
+
+    if (temp >= 128) setFlag("S", 1);
+    else setFlag("S", 0);
+
+    if (temp == 0) setFlag("Z", 1);
+    else setFlag("Z", 0);
+
+    setFlag("P", 0);
+}
+
+function sra_r() {
+    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+
+    setSraFlags(eval(`${regToShift}[0]`));
+
+    eval(`${regToShift}[0] = ${regToShift}[0] & 1 + ${regToShift}[0] >> 1`);
+    PC[0] += 2;
+}
+
+function sra_at_hl() {
+    setSraFlags(memory[(H[0] << 8) + L[0]]);
+
+    memory[(H[0] << 8) + L[0]] = memory[(H[0] << 8) + L[0]] & 1 + memory[(H[0] << 8) + L[0]] >> 1;
+    PC[0] += 2;
+}
+
+function sra_at_ix() {
+    setSraFlags(memory[IX[0] + memory[PC[0] + 2]]);
+
+    memory[IX[0] + memory[PC[0] + 2]] = memory[IX[0] + memory[PC[0] + 2]] & 1 + memory[IX[0] + memory[PC[0] + 2]] >> 1;
+    PC[0] += 4;
+}
+
+function sra_at_iy() {
+    setSraFlags(memory[IY[0] + memory[PC[0] + 2]]);
+
+    memory[IY[0] + memory[PC[0] + 2]] = memory[IY[0] + memory[PC[0] + 2]] & 1 + memory[IY[0] + memory[PC[0] + 2]] >> 1;
+    PC[0] += 4;
+}
+
+function setSrlFlags(a) {
+    let temp = a >> 1;
+
+    setFlag("H", 0);
+    setFlag("N", 0);
+
+    if ((a & 1) == 1) setFlag("C", 1);
+    else setFlag("C", 0);
+
+    if (temp >= 128) setFlag("S", 1);
+    else setFlag("S", 0);
+
+    if (temp == 0) setFlag("Z", 1);
+    else setFlag("Z", 0);
+
+    setFlag("P", 0);
+}
+
+function srl_r() {
+    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+
+    setSrlFlags(eval(`${regToShift}[0]`));
+
+    eval(`${regToShift}[0] = ${regToShift}[0] >> 1`);
+    PC[0] += 2;
+}
+
+function srl_at_hl() {
+    setSrlFlags(memory[(H[0] << 8) + L[0]]);
+
+    memory[(H[0] << 8) + L[0]] = memory[(H[0] << 8) + L[0]] >> 1;
+    PC[0] += 2;
+}
+
+function srl_at_ix() {
+    setSrlFlags(memory[IX[0] + memory[PC[0] + 2]]);
+
+    memory[IX[0] + memory[PC[0] + 2]] = memory[IX[0] + memory[PC[0] + 2]] >> 1;
+    PC[0] += 4;
+}
+
+function srl_at_iy() {
+    setSrlFlags(memory[IY[0] + memory[PC[0] + 2]]);
+
+    memory[IY[0] + memory[PC[0] + 2]] = memory[IY[0] + memory[PC[0] + 2]] >> 1;
+    PC[0] += 4;
+}
