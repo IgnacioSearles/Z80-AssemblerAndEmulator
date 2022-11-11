@@ -119,6 +119,7 @@ function getInstructionBytes(lineMatch, instruction) {
         let m, n, m_2, n_2;
         let j = 0;
         let f = 0;
+        let b = 0;
 
         if (lineMatch[2]) {
             t1 = (tables.table1[lineMatch[2]]) ? tables.table1[lineMatch[2]] : 0;
@@ -137,6 +138,8 @@ function getInstructionBytes(lineMatch, instruction) {
             j = (lineMatch[2].match(/^[a-z_]+/)) ?  `symbolTable["${lineMatch[2]}"] - ${positionInMemory} - 1` : processNumber(lineMatch[2]) - positionInMemory - 1;
 
             f = (lineMatch[2].match(/^[a-z_]+/)) ?  `${lineMatch[2]}` : processNumber(lineMatch[2]);
+
+            b = processNumber(lineMatch[2]);
         }
         if (lineMatch[3]) {
             t1_2 = (tables.table1[lineMatch[3]]) ? tables.table1[lineMatch[3]] : 0;

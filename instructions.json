@@ -144,18 +144,53 @@
 
     {"instruction": "(sla|SLA) ([A-EHL])", "compilecode": ["203", "32 + t1"], "bytePatterns": [203, "00100..."], "fn": "sla_r"},
     {"instruction": "(sla|SLA) \\(HL\\)", "compilecode": ["203", "38"], "bytePatterns": [203, 38], "fn": "sla_at_hl"},
-    {"instruction": "(sla|SLA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "38"], "bytePatterns": [221, 203, "*", 26], "fn": "sla_at_ix"},
-    {"instruction": "(sla|SLA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "38"], "bytePatterns": [253, 203, "*", 26], "fn": "sla_at_iy"},
+    {"instruction": "(sla|SLA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "38"], "bytePatterns": [221, 203, ".*", 26], "fn": "sla_at_ix"},
+    {"instruction": "(sla|SLA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "38"], "bytePatterns": [253, 203, ".*", 26], "fn": "sla_at_iy"},
 
     {"instruction": "(sra|SRA) ([A-EHL])", "compilecode": ["203", "40 + t1"], "bytePatterns": [203, "00101..."], "fn": "sra_r"},
     {"instruction": "(sra|SRA) \\(HL\\)", "compilecode": ["203", "46"], "bytePatterns": [203, 46], "fn": "sra_at_hl"},
-    {"instruction": "(sra|SRA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "46"], "bytePatterns": [221, 203, "*", 46], "fn": "sra_at_ix"},
-    {"instruction": "(sra|SRA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "46"], "bytePatterns": [253, 203, "*", 46], "fn": "sra_at_iy"},
+    {"instruction": "(sra|SRA) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "46"], "bytePatterns": [221, 203, ".*", 46], "fn": "sra_at_ix"},
+    {"instruction": "(sra|SRA) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "46"], "bytePatterns": [253, 203, ".*", 46], "fn": "sra_at_iy"},
 
     {"instruction": "(srl|SRL) ([A-EHL])", "compilecode": ["203", "56 + t1"], "bytePatterns": [203, "00111..."], "fn": "srl_r"},
     {"instruction": "(srl|SRL) \\(HL\\)", "compilecode": ["203", "62"], "bytePatterns": [203, 62], "fn": "srl_at_hl"},
-    {"instruction": "(srl|SRL) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "62"], "bytePatterns": [221, 203, "*", 62], "fn": "srl_at_ix"},
-    {"instruction": "(srl|SRL) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "62"], "bytePatterns": [253, 203, "*", 62], "fn": "srl_at_iy"},
+    {"instruction": "(srl|SRL) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "62"], "bytePatterns": [221, 203, ".*", 62], "fn": "srl_at_ix"},
+    {"instruction": "(srl|SRL) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "62"], "bytePatterns": [253, 203, ".*", 62], "fn": "srl_at_iy"},
 
-    {"instruction": "(int|INT) 80h", "compilecode": ["255"], "bytePatterns": ["FF"], "fn": "halt"}
+    {"instruction": "(rla|RLA) A", "compilecode": ["23"], "bytePatterns": [23], "fn": "rla"},
+    {"instruction": "(rl|RL) ([A-EHL])", "compilecode": ["203", "16 + t1"], "bytePatterns": [203, "00010..."], "fn": "rl_r"},
+    {"instruction": "(rl|RL) \\(HL\\)", "compilecode": ["203", "22"], "bytePatterns": [203, 22], "fn": "rl_at_hl"},
+    {"instruction": "(rl|RL) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "22"], "bytePatterns": [221, 203, ".*", 22], "fn": "rl_at_ix"},
+    {"instruction": "(rl|RL) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "22"], "bytePatterns": [253, 203, ".*", 22], "fn": "rl_at_iy"},
+
+    {"instruction": "(rlca|RLCA) A", "compilecode": ["7"], "bytePatterns": [7], "fn": "rlca"},
+    {"instruction": "(rlc|RLC) ([A-EHL])", "compilecode": ["203", "t1"], "bytePatterns": [203, "00000..."], "fn": "rlc_r"},
+    {"instruction": "(rlc|RLC) \\(HL\\)", "compilecode": ["203", "6"], "bytePatterns": [203, 6], "fn": "rlc_at_hl"},
+    {"instruction": "(rlc|RLC) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "6"], "bytePatterns": [221, 203, ".*", 6], "fn": "rlc_at_ix"},
+    {"instruction": "(rlc|RLC) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "6"], "bytePatterns": [253, 203, ".*", 6], "fn": "rlc_at_iy"},
+
+    {"instruction": "(rra|RRA) A", "compilecode": ["31"], "bytePatterns": [31], "fn": "rra"},
+    {"instruction": "(rr|RR) ([A-EHL])", "compilecode": ["203", "24 + t1"], "bytePatterns": [203, "00011..."], "fn": "rr_r"},
+    {"instruction": "(rr|RR) \\(HL\\)", "compilecode": ["203", "30"], "bytePatterns": [203, 30], "fn": "rr_at_hl"},
+    {"instruction": "(rr|RR) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "30"], "bytePatterns": [221, 203, ".*", 30], "fn": "rr_at_ix"},
+    {"instruction": "(rr|RR) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "30"], "bytePatterns": [253, 203, ".*", 30], "fn": "rr_at_iy"},
+
+    {"instruction": "(rrca|RRCA) A", "compilecode": ["15"], "bytePatterns": [15], "fn": "rrca"},
+    {"instruction": "(rrc|RRC) ([A-EHL])", "compilecode": ["203", "8 + t1"], "bytePatterns": [203, "00001..."], "fn": "rrc_r"},
+    {"instruction": "(rrc|RRC) \\(HL\\)", "compilecode": ["203", "14"], "bytePatterns": [203, 14], "fn": "rrc_at_hl"},
+    {"instruction": "(rrc|RRC) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "14"], "bytePatterns": [221, 203, ".*", 14], "fn": "rrc_at_ix"},
+    {"instruction": "(rrc|RRC) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "14"], "bytePatterns": [253, 203, ".*", 14], "fn": "rrc_at_iy"},
+
+    {"instruction": "(set|SET) ([0-9]+), ([A-EHL])", "compilecode": ["203", "192 + b * 8 + t1_2"], "bytePatterns": [203, "11......"], "fn": "set_b_of_r"},
+    {"instruction": "(set|SET) ([0-9]+), \\(HL\\)", "compilecode": ["203", "198 + b * 8"], "bytePatterns": [203, "11...110"], "fn": "set_b_of_at_hl"},
+    {"instruction": "(set|SET) ([0-9]+), \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "198 + b * 8"], "bytePatterns": [221, 203, ".*", "11...110"], "fn": "set_b_of_at_ix"},
+    {"instruction": "(set|SET) ([0-9]+), \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "198 + b * 8"], "bytePatterns": [253, 203, ".*", "11...110"], "fn": "set_b_of_at_iy"},
+
+    {"instruction": "(res|RES) ([0-9]+), ([A-EHL])", "compilecode": ["203", "128 + b * 8 + t1_2"], "bytePatterns": [203, "10......"], "fn": "res_b_of_r"},
+    {"instruction": "(res|RES) ([0-9]+), \\(HL\\)", "compilecode": ["203", "134 + b * 8"], "bytePatterns": [203, "10...110"], "fn": "res_b_of_at_hl"},
+    {"instruction": "(res|RES) ([0-9]+), \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "203", "d", "134 + b * 8"], "bytePatterns": [221, 203, ".*", "10...110"], "fn": "res_b_of_at_ix"},
+    {"instruction": "(res|RES) ([0-9]+), \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "134 + b * 8"], "bytePatterns": [253, 203, ".*", "10...110"], "fn": "res_b_of_at_iy"},
+
+    {"instruction": "(nop|NOP)", "compilecode": ["0"], "bytePatterns": [0], "fn": "nop"},
+    {"instruction": "(int|INT) 80h", "compilecode": ["255"], "bytePatterns": [255], "fn": "halt"}
 ]

@@ -3,6 +3,7 @@
     <head>
         <title>Z80 Compiler / Emulator</title>
         <link rel="stylesheet" href="styles.css"></link>
+        <link rel="icon" href="favicon.ico"></link>
     </head>
     <body>
         <div id="columns">
@@ -23,6 +24,7 @@
                         <select id="memPosToGoToNumberSystem">
                             <option>dec</option>
                             <option>hex</option>
+                            <option>bin</option>
                         </select>
                         <button id="goToMemPos" class="customBtn">Go To</button>
                     </div>
@@ -35,6 +37,10 @@
                 <h3 class="infoText">Registers</h3>
                 <div id="regsDiv">
                 </div>
+            </div>
+
+            <div id="authorDiv" class="border">
+                <h5>Made by Ignacio Searles. Code available <a href="https://github.com/IgnacioSearles/Zilog-Z80-CompilerAndEmulator" style="text-decoration: none">here</a>.</h5>
             </div>
 
             <div id="runProgramDiv" class="border">
@@ -52,6 +58,7 @@
                 </div>
             </div>
         </div>
+
 
         <script src="/utils/loadData.js"></script>
         <script src="/utils/utils.js"></script>

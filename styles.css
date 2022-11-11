@@ -14,7 +14,8 @@
         "editor memory"
         "editor memory"
         "regs runtab"
-        "regs specialregs";
+        "regs specialregs"
+        "author specialregs";
 }
 
 #editorDiv {
@@ -82,6 +83,16 @@
 
 #regsDivContainer {
     grid-area: regs;
+}
+
+#authorDiv {
+    grid-area: author;
+    display: grid;
+    place-items: center;
+}
+
+#authorDiv > h5 {
+    margin: 0.25rem;
 }
 
 #specialRegsDivContainer {

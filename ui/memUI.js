@@ -32,9 +32,11 @@ function createByteInput(value, memPlace, parentDiv) {
     byteInputDiv.appendChild(byteInput);
 
     const selectNumberSystem = document.createElement("select");
-    selectNumberSystem.innerHTML = `<option >dec</option>
+    selectNumberSystem.innerHTML = `<option>dec</option>
                                     <option>bin</option>
                                     <option>hex</option>`;
+
+    selectNumberSystem.value = memPosToGoToNumberSystem.value;
     
     selectNumberSystem.dataset.biId = `bi${memPlace}`;
     selectNumberSystem.id = `s${memPlace}`;
@@ -91,8 +93,7 @@ function createMemoryListDiv() {
         addrDiv.className = "memoryAddress" + ((PC[0] == address) ? " memAtPC" : "");
 
         const pAddr = document.createElement("p");
-        pAddr.innerText = (memPosToGoToNumberSystem.value == "hex") ? address.toString(16) : address.toString(10); 
-
+        pAddr.innerText = address.toString(selectNumberSystemOptions[memPosToGoToNumberSystem.value]);
         addrDiv.appendChild(pAddr);
 
         createByteInput(dataByte, `memory[${address}]`, addrDiv);

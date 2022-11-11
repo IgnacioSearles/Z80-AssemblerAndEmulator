@@ -103,3 +103,7 @@ function runNextInstruction() {
 function halt() {
     return;
 }
+
+function nop() {
+    PC[0] += 1;
+}
