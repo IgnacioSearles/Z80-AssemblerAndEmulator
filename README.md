@@ -2,7 +2,7 @@
 
 A javascript implementation of the classic Zilog Z80 CPU.
 
-![Z80 Compiler/Emulator](Z80Pic.png)
+![Z80 Compiler/Emulator](./images/Z80Pic.png)
 
 ### Note
 
