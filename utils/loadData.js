@@ -7,7 +7,7 @@ const table4 = {"BC": 0, "DE": 1, "IX": 2, "SP": 3};
 const table5 = {"BC": 0, "DE": 1, "IY": 2, "SP": 3};
 const table6 = {"NZ": 0, "Z": 1, "NC": 2, "C": 3, "PO": 4, "PE": 5, "P": 6, "M": 7};
 
-fetch("/instructions.json")
+fetch("../instructions.json")
     .then(res => res.json())
     .then(data => instructions = data);
 
