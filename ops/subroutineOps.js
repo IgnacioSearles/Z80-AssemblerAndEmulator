@@ -55,8 +55,9 @@ function pop_iy() {
 }
 
 function call() {
-    memory[SP[0] - 1] = (PC[0] & parseInt("1111111100000000", 2)) >> 8;
-    memory[SP[0] - 2] = PC[0] & parseInt("11111111", 2);
+    let returnDir = PC[0] + 3;
+    memory[SP[0] - 1] = (returnDir & parseInt("1111111100000000", 2)) >> 8;
+    memory[SP[0] - 2] = returnDir & parseInt("11111111", 2);
 
     PC[0] = (memory[PC[0] + 2] << 8) + memory[PC[0] + 1];
 
