@@ -30,11 +30,11 @@
     {"instruction": "(ld|LD) \\(([0-9]+h?|[a-z_]+)\\), HL", "compilecode": ["34", "n", "m"], "bytePatterns": [34], "fn": "hl_to_at_mn"},
     {"instruction": "(ld|LD) \\(([0-9]+h?|[a-z_]+)\\), IX", "compilecode": ["221", "34", "n", "m"], "bytePatterns": [221, 34], "fn": "ix_to_at_mn"},
     {"instruction": "(ld|LD) \\(([0-9]+h?|[a-z_]+)\\), IY", "compilecode": ["253", "34", "n", "m"], "bytePatterns": [253, 34], "fn": "iy_to_at_mn"},
-    {"instruction": "(ld|LD) (BC|DE|SP), \\(([0-9]+h?|[a-z_]+)\\)", "compilecode": ["237", "75 + t3 * 16", "n", "m"], "bytePatterns": [237, "01..1011"], "fn": "at_mn_to_r"},
+    {"instruction": "(ld|LD) (BC|DE|SP), \\(([0-9]+h?|[a-z_]+)\\)", "compilecode": ["237", "75 + t3 * 16", "n_2", "m_2"], "bytePatterns": [237, "01..1011"], "fn": "at_mn_to_r"},
     {"instruction": "(ld|LD) \\(([0-9]+h?|[a-z_]+)\\), (BC|DE|SP)", "compilecode": ["237", "67 + t3 * 16", "n", "m"], "bytePatterns": [237, "01..0011"], "fn": "r_to_at_mn"},
     {"instruction": "(ld|LD) IX, ([0-9]+h?|[a-z_]+)", "compilecode": ["221", "33", "n", "m"], "bytePatterns": [221, 33], "fn": "mn_to_ix"},
     {"instruction": "(ld|LD) IY, ([0-9]+h?|[a-z_]+)", "compilecode": ["253", "33", "n", "m"], "bytePatterns": [253, 33], "fn": "mn_to_iy"},
-    {"instruction": "(ld|LD) (BC|DE|HL|SP), ([0-9]+h?|[a-z_]+)", "compilecode": ["1 + t3 * 16", "n", "m"], "bytePatterns": ["00..0001"], "fn": "mn_to_r"},
+    {"instruction": "(ld|LD) (BC|DE|HL|SP), ([0-9]+h?|[a-z_]+)", "compilecode": ["1 + t3 * 16", "n_2", "m_2"], "bytePatterns": ["00..0001"], "fn": "mn_to_r"},
 
     {"instruction": "(add|ADD) A, ([A-EHL])", "compilecode": ["128 + t1"], "bytePatterns": ["10000..."], "fn": "a_add_r"},
     {"instruction": "(add|ADD) A, \\(HL\\)", "compilecode": ["134"], "bytePatterns": [134], "fn": "a_add_at_hl"},
