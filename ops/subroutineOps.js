@@ -27,7 +27,7 @@ function push_iy() {
     PC[0] += 2;
 }
 
-function push_r() {
+function pop_r() {
     const regToPopTo = getRegFromT2Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4);
 
     eval(`${regToPopTo[0]}[0] = memory[SP[0] + 1];`); 
@@ -37,7 +37,7 @@ function push_r() {
     PC[0] += 1;
 }
 
-function push_ix() {
+function pop_ix() {
     IX[0] = (memory[SP[0] + 1] << 8) + memory[SP[0]];
 
     SP[0] += 2;
@@ -46,7 +46,7 @@ function push_ix() {
 }
 
 
-function push_iy() {
+function pop_iy() {
     IY[0] = (memory[SP[0] + 1] << 8) + memory[SP[0]];
 
     SP[0] += 2;
