@@ -81,7 +81,7 @@ function processTag(line) {
     const ds = line.match(/ds (.+)/);
     if (ds) tag.vals = new Array(parseInt(ds[1])).fill(0);
 
-    const defm = line.match(/defm (.+)/);
+    const defm = line.match(/defm "(.+)"/);
     if (defm) tag.vals = ASCIItoNumberList(defm[1]); 
 
     const end = line.match(/end ([a-z_]+)/);
