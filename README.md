@@ -2,6 +2,8 @@
 
 A javascript implementation of the classic Zilog Z80 CPU.
 
+[Link to the compiler/emulator](https://ignaciosearles.github.io/Z80-CompilerAndEmulator/)
+
 ![Z80 Compiler/Emulator](./images/Z80Pic.png)
 
 ### Note

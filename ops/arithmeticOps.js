@@ -81,7 +81,7 @@ function a_add_v() {
 }
 
 function hl_add_r() {
-    const regToAdd = eval(`${getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4)}`);
+    const regToAdd = getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4);
 
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
@@ -100,7 +100,7 @@ function hl_add_r() {
 }
 
 function ix_add_r() {
-    const regToAdd = eval(`${getRegFromT4Code((memory[PC[0] + 1] & parseInt("00110000", 2)) >> 4)}`);
+    const regToAdd = getRegFromT4Code((memory[PC[0] + 1] & parseInt("00110000", 2)) >> 4);
 
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
@@ -119,7 +119,7 @@ function ix_add_r() {
 }
 
 function iy_add_r() {
-    const regToAdd = eval(`${getRegFromT5Code((memory[PC[0] + 1] & parseInt("00110000", 2)) >> 4)}`);
+    const regToAdd = getRegFromT5Code((memory[PC[0] + 1] & parseInt("00110000", 2)) >> 4);
 
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
