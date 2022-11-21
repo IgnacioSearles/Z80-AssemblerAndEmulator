@@ -5,7 +5,7 @@ compileBtn.addEventListener("click", () => {
     const asm = editor.value;
     compileAndMoveToMem(asm);
 
-    PC[0] = startPosInMemory;
+    PC[0] = PCstartPos;
     createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
 
     createMemoryListDiv();

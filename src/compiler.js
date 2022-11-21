@@ -1,6 +1,7 @@
 let symbolTable = {};
 let positionInMemory = 0;
 let startPosInMemory = 0;
+let PCstartPos = 0;
 
 function compileToZ80(asm) {
     positionInMemory = 0;
@@ -37,6 +38,7 @@ function processTag(line) {
     if (org) {
         positionInMemory = processNumber(org[1]); 
         startPosInMemory = positionInMemory;
+        PCstartPos = positionInMemory;
     }
 
     const memPos = line.match(/([a-zA-Z_]+)\:(.*)/);
@@ -81,6 +83,9 @@ function processTag(line) {
 
     const defm = line.match(/defm (.+)/);
     if (defm) tag.vals = ASCIItoNumberList(defm[1]); 
+
+    const end = line.match(/end [a-z_]+/);
+    if (end) PCstartPos = positionInMemory; 
 
     const valsLength = (tag.vals) ? tag.vals.length : 0;
     positionInMemory += bytesPerVal * valsLength;
