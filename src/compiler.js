@@ -84,8 +84,8 @@ function processTag(line) {
     const defm = line.match(/defm (.+)/);
     if (defm) tag.vals = ASCIItoNumberList(defm[1]); 
 
-    const end = line.match(/end [a-z_]+/);
-    if (end) PCstartPos = positionInMemory; 
+    const end = line.match(/end ([a-z_]+)/);
+    if (end) PCstartPos = symbolTable[`${end[1]}`]; 
 
     const valsLength = (tag.vals) ? tag.vals.length : 0;
     positionInMemory += bytesPerVal * valsLength;
