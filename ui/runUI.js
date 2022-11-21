@@ -12,6 +12,7 @@ compileBtn.addEventListener("click", () => {
 });
 
 const fetchAtPcAndRunIns = document.getElementById("fetchAtPcAndRunIns");
+
 fetchAtPcAndRunIns.addEventListener("click", () => {
     runNextInstruction();
 
@@ -38,3 +39,33 @@ fetchAtPcAndRunMultipleInsBtn.addEventListener("click", () => {
         createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
     }, 120);
 })
+
+const resetCPU = document.getElementById("resetCPU");
+
+resetCPU.addEventListener("click", () => {
+    A[0] = 0;
+    B[0] = 0;
+    C[0] = 0;
+    D[0] = 0;
+    E[0] = 0;
+
+    H[0] = 0;
+    L[0] = 0;
+
+    I[0] = 0;
+    R[0] = 0;
+
+    IX[0] = 0;
+    IY[0] = 0;
+
+    PC[0] = 0;
+    SP[0] = 0;
+
+    F[0] = 0;
+
+    memory.fill(0); 
+
+    createMemoryListDiv();
+    createRegList(['A', 'B', 'C', 'D', 'E', 'H', 'L', 'IX', 'IY'], regsDiv); 
+    createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
+});

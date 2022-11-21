@@ -183,11 +183,11 @@ function a_adc_v() {
 }
 
 function hl_adc_r() {
-    const regToAdd = eval(`${getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4)}`);
+    const regToAdd = getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4);
 
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0] + getFlag("C");
-    else valToAdd = eval(`(${regToAdd}[0] << 8) + ${regToAdd}[1]`) + getFlag("C");
+    else valToAdd = eval(`(${regToAdd[0]}[0] << 8) + ${regToAdd[1]}[0]`) + getFlag("C");
 
     let tempResult = (((H[0] << 8) + L[0]) & 32767) + (valToAdd & 32767);
 
@@ -303,11 +303,11 @@ function a_sbc_v() {
 }
 
 function hl_sbc_r() {
-    const regToSub = eval(`${getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4)}`);
+    const regToSub = getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >> 4);
 
     let valToSub = 0;
     if (regToSub == "SP") valToSub = SP[0] + getFlag("C");
-    else valToSub = eval(`(${regToAdd}[0] << 8) + ${regToAdd}[1]`) + getFlag("C");
+    else valToSub = eval(`(${regToAdd[0]}[0] << 8) + ${regToAdd[1]}[0]`) + getFlag("C");
 
     let tempResult = ((H[0] << 8) + L[0]) - valToSub;
 
