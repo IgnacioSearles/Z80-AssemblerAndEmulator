@@ -16,7 +16,7 @@ function getInstructions() {
 }
 
 function getTables() {
-    return { table1, table2, table3, table4, table5 };
+    return { table1, table2, table3, table4, table5, table6 };
 }
 
 function getRegFromT1Code(code) {
