@@ -1,5 +1,5 @@
 [
-    {"instruction": "(ld|LD) ([A-EHL]), ([A-EHL])", "compilecode": ["64 + t1 * 8 + t1_2"], "bytePatterns": ["01......"], "fn": "r_to_r"},
+    {"instruction": "(ld|LD) ([A-EHL]), ([A-EHL])", "compilecode": ["64 + t1 * 8 + t1_2"], "bytePatterns": ["01(0..|10.|111)(0..|10.|111)"], "fn": "r_to_r"},
     {"instruction": "(ld|LD) A, I", "compilecode": ["237", "87"], "bytePatterns": [237, 87], "fn": "i_to_a"},
     {"instruction": "(ld|LD) A, R", "compilecode": ["237", "95"], "bytePatterns": [237, 95], "fn": "r_to_a"},
     {"instruction": "(ld|LD) I, A", "compilecode": ["237", "71"], "bytePatterns": [237, 71], "fn": "a_to_i"},
