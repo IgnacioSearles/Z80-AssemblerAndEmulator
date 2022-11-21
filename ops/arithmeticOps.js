@@ -85,7 +85,7 @@ function hl_add_r() {
 
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
-    else valToAdd = eval(`(${regToAdd}[0] << 8) + ${regToAdd}[1]`);
+    else valToAdd = eval(`(${regToAdd[0]}[0] << 8) + ${regToAdd[1]}[0]`);
 
     setFlag("N", 0);
 
@@ -105,7 +105,7 @@ function ix_add_r() {
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
     else if (regToAdd == "IX") valToAdd = IX[0];
-    else valToAdd = eval(`(${regToAdd}[0] << 8) + ${regToAdd}[1]`);
+    else valToAdd = eval(`(${regToAdd[0]}[0] << 8) + ${regToAdd[1]}[0]`);
 
     setFlag("N", 0);
 
@@ -124,7 +124,7 @@ function iy_add_r() {
     let valToAdd = 0;
     if (regToAdd == "SP") valToAdd = SP[0];
     else if (regToAdd == "IY") valToAdd = IY[0];
-    else valToAdd = eval(`(${regToAdd}[0] << 8) + ${regToAdd}[1]`);
+    else valToAdd = eval(`(${regToAdd[0]}[0] << 8) + ${regToAdd[1]}[0]`);
 
     setFlag("N", 0);
 
