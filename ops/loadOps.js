@@ -243,6 +243,10 @@ function mn_to_r() {
     const regDest = getRegFromT3Code((memory[PC[0]] & parseInt("00110000", 2)) >>> 4);
 
     if (regDest == "SP") SP[0] = memory[PC[0] + 1] + (memory[PC[0] + 2] << 8);
+    else if (regDest == "HL") {
+        H[0] = memory[PC[0] + 2];
+        L[0] = memory[PC[0] + 1];
+    }
     else eval(`${regDest}[0] = memory[PC[0] + 1] + (memory[PC[0] + 2] << 8);`);  
 
     PC[0] += 3;
