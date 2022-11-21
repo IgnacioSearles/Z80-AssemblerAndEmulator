@@ -128,6 +128,8 @@ function getInstructionBytes(lineMatch, instruction) {
             t4 = (tables.table4[lineMatch[2]]) ? tables.table4[lineMatch[2]] : 0;
             t5 = (tables.table5[lineMatch[2]]) ? tables.table5[lineMatch[2]] : 0;
 
+            f = (tables.table6[lineMatch[2]]) ? tables.table6[lineMatch[2]] : 0;
+
             m = (lineMatch[2].match(/^[a-z_]+/)) ? `${lineMatch[2]}_m` : (processNumber(lineMatch[2]) & parseInt("1111111100000000", 2));
             n = (lineMatch[2].match(/^[a-z_]+/)) ? `${lineMatch[2]}_n` : (processNumber(lineMatch[2]) & parseInt("0000000011111111", 2));
 
@@ -136,8 +138,6 @@ function getInstructionBytes(lineMatch, instruction) {
             d = (lineMatch[2].match(/^[a-z_]+/)) ?  `${lineMatch[2]}` : processNumber(lineMatch[2]);
 
             j = (lineMatch[2].match(/^[a-z_]+/)) ?  `symbolTable["${lineMatch[2]}"] - ${positionInMemory} - 1` : processNumber(lineMatch[2]) - positionInMemory - 1;
-
-            f = (lineMatch[2].match(/^[a-z_]+/)) ?  `${lineMatch[2]}` : processNumber(lineMatch[2]);
 
             b = processNumber(lineMatch[2]);
         }
