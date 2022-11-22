@@ -96,6 +96,13 @@ function createMemoryListDiv() {
         pAddr.innerText = address.toString(selectNumberSystemOptions[memPosToGoToNumberSystem.value]);
         addrDiv.appendChild(pAddr);
 
+        if (matchedInstructions[address]) {
+            const pMatchedInstruction = document.createElement("p");
+            pMatchedInstruction.innerText = matchedInstructions[address];
+            pMatchedInstruction.className = "memAdresssMatchedInstruction";
+            addrDiv.appendChild(pMatchedInstruction);
+        }
+
         createByteInput(dataByte, `memory[${address}]`, addrDiv);
 
         memoryListDiv.appendChild(addrDiv);

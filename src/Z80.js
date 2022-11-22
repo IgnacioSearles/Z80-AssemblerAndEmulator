@@ -93,6 +93,8 @@ function runNextInstruction() {
         });
 
         if (memMatchesInstruction) {
+            addMatchedInstruction(PC[0], instruction.fn);
+
             eval(`${instruction.fn}()`);
             R[0] += 1;
             break;

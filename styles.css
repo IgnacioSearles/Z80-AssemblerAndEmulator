@@ -118,6 +118,11 @@
     margin: 0.2rem 0;
 }
 
+.memAdresssMatchedInstruction {
+    color: black;
+    font-size: 80%;
+}
+
 .memAtPC {
     background-color: lightgray;
 }

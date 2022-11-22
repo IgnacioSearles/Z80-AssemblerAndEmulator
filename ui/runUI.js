@@ -5,6 +5,8 @@ compileBtn.addEventListener("click", () => {
     const asm = editor.value;
     compileAndMoveToMem(asm);
 
+    clearMatchedInstructions();
+
     PC[0] = PCstartPos;
     createRegList(['PC', 'SP', 'F', 'I', 'R'], specialRegsDiv); 
 
@@ -64,6 +66,8 @@ resetCPU.addEventListener("click", () => {
     F[0] = 0;
 
     memory.fill(0); 
+
+    clearMatchedInstructions();
 
     createMemoryListDiv();
     createRegList(['A', 'B', 'C', 'D', 'E', 'H', 'L', 'IX', 'IY'], regsDiv); 
