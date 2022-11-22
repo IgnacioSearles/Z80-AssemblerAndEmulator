@@ -18,6 +18,18 @@
         "author specialregs";
 }
 
+@media only screen and (max-width: 600px) {
+    #columns {
+    grid-template-areas:
+        "editor"
+        "memory"
+        "runtab"
+        "regs"
+        "specialregs"
+        "author";
+    }
+}
+
 #editorDiv {
     grid-area: editor;
     display: grid;
