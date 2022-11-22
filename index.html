@@ -16,6 +16,30 @@
                 </div>
             </div>
 
+            <div id="runProgramDiv" class="border">
+                <div id="runProgramLeftBtns">
+                    <button id="fetchAtPcAndRunIns" class="customBtn" style="height: 100%">Fetch and run instruction</button>
+                    <button id="resetCPU" class="customBtn" style="height: 100%">RST</button>
+                </div>
+                <div style="margin: 0.1rem">
+                    <button id="fetchAtPcAndRunMultipleInsBtn" class="customBtn">Fetch and run</button>
+                    <input id="fetchAtPcAndRunMultipleIns" type="number"></input>
+                    <p style="margin: 0 0.1rem">instructions</p>
+                </div>
+            </div>
+
+            <div id="regsDivContainer" class="border">
+                <h3 class="infoText">Registers</h3>
+                <div id="regsDiv">
+                </div>
+            </div>
+
+            <div id="specialRegsDivContainer" class="border">
+                <h3 class="infoText">Special Registers</h3>
+                <div id="specialRegsDiv">
+                </div>
+            </div>
+
             <div id="memoryDivContainer" class="border">
                 <div id="memoryHeader">
                     <h3 style="margin: 0.25rem">Memory</h3>
@@ -33,35 +57,10 @@
                 </div>
             </div>
 
-            <div id="regsDivContainer" class="border">
-                <h3 class="infoText">Registers</h3>
-                <div id="regsDiv">
-                </div>
-            </div>
-
             <div id="authorDiv" class="border">
                 <h5>Made by Ignacio Searles. Code available <a href="https://github.com/IgnacioSearles/Zilog-Z80-CompilerAndEmulator" style="text-decoration: none">here</a>.</h5>
             </div>
-
-            <div id="runProgramDiv" class="border">
-                <div style="height: 100%">
-                    <button id="fetchAtPcAndRunIns" class="customBtn" style="height: 100%">Fetch and run instruction</button>
-                    <button id="resetCPU" class="customBtn" style="height: 100%">RST</button>
-                </div>
-                <div style="margin: 0.1rem">
-                    <button id="fetchAtPcAndRunMultipleInsBtn" class="customBtn">Fetch and run</button>
-                    <input id="fetchAtPcAndRunMultipleIns" type="number"></input>
-                    <p style="margin: 0 0.1rem">instructions</p>
-                </div>
-            </div>
-
-            <div id="specialRegsDivContainer" class="border">
-                <h3 class="infoText">Special Registers</h3>
-                <div id="specialRegsDiv">
-                </div>
-            </div>
-        </div>
-
+       </div>
 
         <script src="./utils/loadData.js"></script>
         <script src="./utils/utils.js"></script>

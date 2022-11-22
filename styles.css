@@ -18,15 +18,14 @@
         "author specialregs";
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 980px) {
     #columns {
-    grid-template-areas:
-        "editor"
-        "memory"
-        "runtab"
-        "regs"
-        "specialregs"
-        "author";
+        display: flex;
+        flex-direction: column;
+    }
+
+    #memoryListDiv {
+        height: 100% !important;
     }
 }
 
@@ -75,8 +74,6 @@
 
 #memoryDivContainer {
     grid-area: memory;
-    min-width: 0;
-    min-height: 0;
 }
 
 #memoryHeader {
@@ -116,6 +113,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#runProgramLeftBtns {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
 }
 
 .memoryAddress {
