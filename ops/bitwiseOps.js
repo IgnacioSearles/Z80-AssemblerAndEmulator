@@ -210,7 +210,7 @@ function setSlaFlags(a) {
 }
 
 function sla_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     setSlaFlags(eval(`${regToShift}[0]`));
 
@@ -258,7 +258,7 @@ function setSraFlags(a) {
 }
 
 function sra_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     setSraFlags(eval(`${regToShift}[0]`));
 
@@ -306,7 +306,7 @@ function setSrlFlags(a) {
 }
 
 function srl_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     setSrlFlags(eval(`${regToShift}[0]`));
 
@@ -365,7 +365,7 @@ function rla() {
 }
 
 function rl_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     eval(`${regToShift}[0] = ${regToShift}[0] << 1 + getFlag("C")`);
 
@@ -427,7 +427,7 @@ function rlca() {
 }
 
 function rlc_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     setRlcFlags(eval(`${regToShift}[0]`));
 
@@ -486,7 +486,7 @@ function rra() {
 }
 
 function rr_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     eval(`${regToShift}[0] = ${regToShift}[0] >> 1 + (getFlag("C") << 8)`);
 
@@ -548,7 +548,7 @@ function rlca() {
 }
 
 function rrc_r() {
-    const regToShift = getRegFromT1Code(memory[PC[0]] & parseInt("00000111", 2));
+    const regToShift = getRegFromT1Code(memory[PC[0] + 1] & parseInt("00000111", 2));
 
     setRrcFlags(eval(`${regToShift}[0]`));
 
