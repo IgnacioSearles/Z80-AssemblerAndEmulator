@@ -192,5 +192,5 @@
     {"instruction": "(res|RES) ([0-9]+), \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "203", "d", "134 + b * 8"], "bytePatterns": [253, 203, ".*", "10...110"], "fn": "res_b_of_at_iy"},
 
     {"instruction": "(nop|NOP)", "compilecode": ["0"], "bytePatterns": [0], "fn": "nop"},
-    {"instruction": "(int|INT) 80h", "compilecode": ["255"], "bytePatterns": [255], "fn": "halt"}
+    {"instruction": "(rst|RST) 38h", "compilecode": ["255"], "bytePatterns": [255], "fn": "halt"}
 ]
