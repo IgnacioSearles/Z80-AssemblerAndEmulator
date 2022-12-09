@@ -34,7 +34,7 @@ ld C, 7                ;divisor
 push BC                ;call divide subrutine
 call divide
 
-int 80h                ;stop execution
+rst 38h                ;stop execution
 
 end start              ;PC starts at start tag
 

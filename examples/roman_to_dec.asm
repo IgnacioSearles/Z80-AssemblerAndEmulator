@@ -58,7 +58,7 @@ save_num_to_mem:               ;save output to mem
 ld A, C
 ld (output), A
 
-int 80h
+rst 38h
 
 end start
 

@@ -37,7 +37,7 @@ ld A, E
 srl A
 ld (result), A
 
-int 80h
+rst 38h
 
 end start
 
