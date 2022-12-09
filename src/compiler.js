@@ -117,10 +117,10 @@ function getInstructionBytes(lineMatch, instruction) {
     instruction.compilecode.forEach((code) => {
         let codeStringToAdd = code;
 
-        let t1, t2, t3, t4, t5 = 0;
-        let t1_2, t2_2, t3_2, t4_2, t5_2 = 0;
-        let v, v_2 = 0;
-        let d, d_2 = 0;
+        let t1 = 0, t2 = 0, t3 = 0, t4 = 0, t5 = 0;
+        let t1_2 = 0, t2_2 = 0, t3_2 = 0, t4_2 = 0, t5_2 = 0;
+        let v = 0, v_2 = 0;
+        let d = 0, d_2 = 0;
         let m, n, m_2, n_2;
         let j = 0;
         let f = 0;
