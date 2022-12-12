@@ -98,7 +98,7 @@ function processInstruction(line) {
     const instructions = getInstructions();
 
     for (let instruction of instructions) {
-        const match = line.match(instruction.instruction);
+        const match = line.match("^" + instruction.instruction + "$");
 
         if (match) {  
             processedLine.instructionBytes = getInstructionBytes(match, instruction);
