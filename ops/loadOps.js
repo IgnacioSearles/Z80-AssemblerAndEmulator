@@ -138,7 +138,7 @@ function v_to_r() {
 function v_to_at_hl() {
     const value = memory[PC[0] + 1]; 
 
-    memory[HL[0]] = value;
+    memory[L[0] + (H[0] << 8)] = value;
     PC[0] += 2;
 }
 
