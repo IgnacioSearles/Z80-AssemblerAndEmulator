@@ -453,7 +453,7 @@ function mlt() {
     const regToMlt = getRegFromT3Code((memory[PC[0] + 1] & parseInt("00110000", 2)) >> 4); 
 
     if (regToMlt == "SP") SP[0] = (SP[0] & parseInt("1111111100000000", 2)) * (SP[0] & parseInt("11111111", 2));
-    else eval(`${regToMlt[0]}[0] = ${regToMlt[0]}[0] * ${regToMlt[1]}[0]`);
+    else eval(`${regToMlt[1]}[0] = ${regToMlt[0]}[0] * ${regToMlt[1]}[0]`);
 
     PC[0] += 2;
 }
