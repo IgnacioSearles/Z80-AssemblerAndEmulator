@@ -68,14 +68,14 @@
 
     {"instruction": "(sbc|SBC) HL, (BC|DE|HL|SP)", "compilecode": ["237", "66 + t3 * 16"], "bytePatterns": [237, "01..0010"], "fn": "hl_sbc_r"},
 
+    {"instruction": "(inc|INC) (BC|DE|HL|SP)", "compilecode": ["3 + t3 * 16"], "bytePatterns": ["00..0011"], "fn": "inc_R"},
+    {"instruction": "(inc|INC) IX", "compilecode": ["221", "35"], "bytePatterns": [221, 35], "fn": "inc_ix"},
+    {"instruction": "(inc|INC) IY", "compilecode": ["253", "35"], "bytePatterns": [253, 35], "fn": "inc_iy"},
+
     {"instruction": "(inc|INC) ([A-EHL])", "compilecode": ["4 + t1 * 8"], "bytePatterns": ["00...100"], "fn": "inc_r"},
     {"instruction": "(inc|INC) \\(HL\\)", "compilecode": ["52"], "bytePatterns": [52], "fn": "inc_at_hl"},
     {"instruction": "(inc|INC) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["221", "52", "d"], "bytePatterns": [221, 52], "fn": "inc_at_ix"},
     {"instruction": "(inc|INC) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "52", "d"], "bytePatterns": [253, 52], "fn": "inc_at_iy"},
-
-    {"instruction": "(inc|INC) (BC|DE|HL|SP)", "compilecode": ["3 + t3 * 16"], "bytePatterns": ["00..0011"], "fn": "inc_R"},
-    {"instruction": "(inc|INC) IX", "compilecode": ["221", "35"], "bytePatterns": [221, 35], "fn": "inc_ix"},
-    {"instruction": "(inc|INC) IY", "compilecode": ["253", "35"], "bytePatterns": [253, 35], "fn": "inc_iy"},
 
     {"instruction": "(dec|DEC) ([A-EHL])", "compilecode": ["5 + t1 * 8"], "bytePatterns": ["00...101"], "fn": "dec_r"},
     {"instruction": "(dec|DEC) \\(HL\\)", "compilecode": ["53"], "bytePatterns": [53], "fn": "dec_at_hl"},
