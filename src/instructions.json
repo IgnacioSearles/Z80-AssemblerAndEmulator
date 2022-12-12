@@ -16,7 +16,7 @@
     {"instruction": "(ld|LD) ([A-EHL]), \\(IY[ +]*([0-9]*h?|[a-z_]*)\\)", "compilecode": ["253", "70 + t1 * 8", "d_2"], "bytePatterns": [253, "01...110"], "fn": "at_iy_to_r"},
     {"instruction": "(ld|LD) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\), ([A-EHL])", "compilecode": ["221", "112 + t1_2", "d"], "bytePatterns": [221, "01110..."], "fn": "r_to_at_ix"},
     {"instruction": "(ld|LD) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\), ([A-EHL])", "compilecode": ["253", "112 + t1_2", "d"], "bytePatterns": [253, "01110..."], "fn": "r_to_at_iy"},
-    {"instruction": "(ld|LD) ([A-EHL]), ([0-9]+h?|[a-z_]+)", "compilecode": ["6 + t1 * 8", "v_2"], "bytePatterns": ["00...110"], "fn": "v_to_r"},
+    {"instruction": "(ld|LD) ([A-EHL]), ([0-9]+h?|[a-z_]+)", "compilecode": ["6 + t1 * 8", "v_2"], "bytePatterns": ["00(0..|10.|111)110"], "fn": "v_to_r"},
     {"instruction": "(ld|LD) \\(HL\\), ([0-9]+h?|[a-z_]+)", "compilecode": ["54", "v_2"], "bytePatterns": [54], "fn": "v_to_at_hl"},
     {"instruction": "(ld|LD) \\(IX[ +]*([0-9]*h?|[a-z_]*)\\), ([0-9]+h?|[a-z_]+)", "compilecode": ["221", "54", "d", "v_2"], "bytePatterns": [221, 54], "fn": "v_to_at_ix"},
     {"instruction": "(ld|LD) \\(IY[ +]*([0-9]*h?|[a-z_]*)\\), ([0-9]+h?|[a-z_]+)", "compilecode": ["253", "54", "d", "v_2"], "bytePatterns": [253, 54], "fn": "v_to_at_iy"},
