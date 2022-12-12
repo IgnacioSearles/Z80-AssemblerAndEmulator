@@ -32,7 +32,7 @@ function processTag(line) {
     const tag = {};
     
     const comment = line.match(/\;.*/);
-    if (comment) line.replace(comment, "");
+    if (comment) line.replace(comment[0], "");
 
     const org = line.match(/org (\d+h?)/);
     if (org) {
