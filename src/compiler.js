@@ -30,7 +30,7 @@ function processASM(asm) {
 
 function processTag(line) {
     const tag = {};
-    
+
     const comment = line.match(/\;.*/);
     if (comment) line = line.replace(comment[0], "");
 
@@ -98,7 +98,7 @@ function processInstruction(line) {
     const instructions = getInstructions();
 
     for (let instruction of instructions) {
-        const match = line.match("^" + instruction.instruction + "$");
+        const match = line.match(instruction.instruction);
 
         if (match) {  
             processedLine.instructionBytes = getInstructionBytes(match, instruction);
