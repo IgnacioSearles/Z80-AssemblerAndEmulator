@@ -1,7 +1,19 @@
 const editor = document.getElementById("editor");
 const compileBtn = document.getElementById("compileBtn");
 
+const compilerErrorText = document.getElementById("compilerErrorText");
+
+function clearCompilerError() {
+    compilerErrorText.innerText = "";
+}
+
+function setCompilerError(line) {
+    compilerErrorText.innerText = "Error on line: " + line;
+}
+
 compileBtn.addEventListener("click", () => {
+    clearCompilerError();
+
     const asm = editor.value;
     compileAndMoveToMem(asm);
 

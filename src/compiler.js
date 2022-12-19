@@ -17,12 +17,17 @@ function processASM(asm) {
     const asmLines = asm.split(/\r?\n/);
     const preprocessedASM = [];
 
-    asmLines.forEach(line => {
-        let {tag, lineNoTags} = processTag(line);
-        let instruction = processInstruction(lineNoTags);
+    asmLines.forEach((line, lineNumber) => {
+        try {
+            let {tag, lineNoTags} = processTag(line);
+            let instruction = processInstruction(lineNoTags);
 
-        if (Object.keys(tag).length != 0) preprocessedASM.push(tag);
-        if (Object.keys(instruction).length != 0) preprocessedASM.push(instruction);
+            if (Object.keys(tag).length != 0) preprocessedASM.push(tag);
+            if (Object.keys(instruction).length != 0) preprocessedASM.push(instruction);
+        }
+        catch (e) {
+            setCompilerError(lineNumber + 1); 
+        }
     });
 
     return preprocessedASM;
@@ -102,11 +107,15 @@ function processInstruction(line) {
 
         if (match) {  
             processedLine.instructionBytes = getInstructionBytes(match, instruction);
-            break;
+            return processedLine;
         }
     }
 
-    return processedLine;
+    if (line.match(/([a-zA-Z_]+ ([a-zA-Z0-9]+|[a-zA-Z0-9]+, [a-zA-Z0-9]+)|[a-zA-Z_]+)/) &&
+        !line.match(/(db|ds|defm|dw|org|end|equ).*/)) 
+        throw "No matching instruction";
+
+    return {};
 }
 
 function getInstructionBytes(lineMatch, instruction) {
