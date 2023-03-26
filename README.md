@@ -1,4 +1,4 @@
-# Zilog Z80 Compiler and Emulator
+# Zilog Z80 Assembler and Emulator
 
 A javascript implementation of the classic Zilog Z80 CPU.
 
